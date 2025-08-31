@@ -1,40 +1,40 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, TreePine } from "lucide-react";
 import heroImage from "@/assets/hero-earth.jpg";
-import ParallaxSection from "@/components/ParallaxSection";
 
 const HeroSection = () => {
 
   return (
     <section className="relative bg-gradient-to-br from-background via-accent/30 to-eco-green/10 py-20 lg:py-32 overflow-hidden">
-      {/* Parallax floating background elements */}
+      {/* Nature-themed floating background elements */}
       <div className="absolute inset-0 opacity-20">
-        <ParallaxSection speed={0.3} className="absolute top-20 left-10">
-          <div className="w-72 h-72 bg-eco-green/20 rounded-full filter blur-3xl animate-float"></div>
-        </ParallaxSection>
-        <ParallaxSection speed={-0.2} className="absolute bottom-20 right-10">
-          <div className="w-96 h-96 bg-eco-blue/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        </ParallaxSection>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-eco-green/20 rounded-full filter blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-eco-blue/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-eco-sage/15 rounded-full filter blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+      </div>
+      
+      {/* Nature pattern overlay */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-repeat opacity-30" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23059669' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm15 0c0-8.284-6.716-15-15-15s-15 6.716-15 15 6.716 15 15 15 15-6.716 15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '60px 60px'
+        }}></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in-up">
             <div className="space-y-6">
-              <ParallaxSection speed={0.1} enableParallax={true}>
-                <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                  Track. Reduce. 
-                  <span className="text-eco-green bg-gradient-to-r from-eco-green to-eco-blue bg-clip-text text-transparent"> 
-                    Offset.
-                  </span>
-                </h1>
-              </ParallaxSection>
-              <ParallaxSection speed={0.05} enableParallax={true}>
-                <p className="text-xl text-muted-foreground max-w-lg animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                  Take control of your carbon footprint with Neutrawise. 
-                  Monitor your impact, discover reduction strategies, and contribute to a sustainable future through intelligent analytics.
-                </p>
-              </ParallaxSection>
+              <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                Track. Reduce. 
+                <span className="text-eco-green bg-gradient-to-r from-eco-green to-eco-blue bg-clip-text text-transparent"> 
+                  Offset.
+                </span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-lg animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                Take control of your carbon footprint with Neutrawise. 
+                Monitor your impact, discover reduction strategies, and contribute to a sustainable future through intelligent analytics.
+              </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
@@ -66,18 +66,19 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <ParallaxSection speed={-0.1} className="relative animate-fade-in-up" enableParallax={true} style={{ animationDelay: '0.4s' }}>
+          <div className="relative animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <div className="relative group">
-              <ParallaxSection speed={0.05} enableParallax={true}>
-                <img 
-                  src={heroImage} 
-                  alt="Sustainable Earth with renewable energy" 
-                  className="w-full h-auto rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-[1.02]"
-                />
-              </ParallaxSection>
+              <img 
+                src={heroImage} 
+                alt="Sustainable Earth with renewable energy" 
+                className="w-full h-auto rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-[1.02]"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-eco-green/10 to-transparent rounded-2xl"></div>
+              {/* Nature overlay effects */}
+              <div className="absolute top-4 right-4 w-8 h-8 bg-eco-green/20 rounded-full animate-pulse"></div>
+              <div className="absolute bottom-6 left-6 w-6 h-6 bg-eco-blue/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
-          </ParallaxSection>
+          </div>
         </div>
       </div>
     </section>
