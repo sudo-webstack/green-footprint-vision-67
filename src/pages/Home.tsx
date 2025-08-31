@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -9,13 +8,6 @@ import PricingPreviewSection from "@/components/sections/PricingPreviewSection";
 import ParallaxSection from "@/components/ParallaxSection";
 
 const Home = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -159,20 +151,18 @@ const Home = () => {
           <ParallaxSection speed={-0.1}>
             <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
               <div className="space-y-6">
-                <h2 
-                  className="text-3xl lg:text-5xl font-bold text-foreground leading-tight"
-                  style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-                >
-                  Ready to Make a 
-                  <span className="bg-gradient-to-r from-eco-green to-eco-blue bg-clip-text text-transparent"> Difference?</span>
-                </h2>
-                <p 
-                  className="text-xl text-muted-foreground max-w-2xl mx-auto"
-                  style={{ transform: `translateY(${scrollY * 0.02}px)` }}
-                >
-                  Join thousands of users who are already taking action against climate change. 
-                  Start your sustainability journey today and be part of the solution.
-                </p>
+                <ParallaxSection speed={0.05} enableParallax={true}>
+                  <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-tight">
+                    Ready to Make a 
+                    <span className="bg-gradient-to-r from-eco-green to-eco-blue bg-clip-text text-transparent"> Difference?</span>
+                  </h2>
+                </ParallaxSection>
+                <ParallaxSection speed={0.02} enableParallax={true}>
+                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Join thousands of users who are already taking action against climate change. 
+                    Start your sustainability journey today and be part of the solution.
+                  </p>
+                </ParallaxSection>
               </div>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

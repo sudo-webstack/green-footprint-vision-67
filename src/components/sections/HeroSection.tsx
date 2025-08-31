@@ -1,60 +1,40 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, TreePine } from "lucide-react";
-import { useEffect, useState } from "react";
 import heroImage from "@/assets/hero-earth.jpg";
+import ParallaxSection from "@/components/ParallaxSection";
 
 const HeroSection = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <section className="relative bg-gradient-to-br from-background via-accent/30 to-eco-green/10 py-20 lg:py-32 overflow-hidden">
       {/* Parallax floating background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div 
-          className="absolute top-20 left-10 w-72 h-72 bg-eco-green/20 rounded-full filter blur-3xl animate-float"
-          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-        ></div>
-        <div 
-          className="absolute bottom-20 right-10 w-96 h-96 bg-eco-blue/20 rounded-full filter blur-3xl animate-float" 
-          style={{ 
-            animationDelay: '1s',
-            transform: `translateY(${scrollY * -0.2}px)` 
-          }}
-        ></div>
+        <ParallaxSection speed={0.3} className="absolute top-20 left-10">
+          <div className="w-72 h-72 bg-eco-green/20 rounded-full filter blur-3xl animate-float"></div>
+        </ParallaxSection>
+        <ParallaxSection speed={-0.2} className="absolute bottom-20 right-10">
+          <div className="w-96 h-96 bg-eco-blue/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        </ParallaxSection>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in-up">
             <div className="space-y-6">
-              <h1 
-                className="text-4xl lg:text-6xl font-bold text-foreground leading-tight animate-fade-in-up" 
-                style={{ 
-                  animationDelay: '0.3s',
-                  transform: `translateY(${scrollY * 0.1}px)` 
-                }}
-              >
-                Track. Reduce. 
-                <span className="text-eco-green bg-gradient-to-r from-eco-green to-eco-blue bg-clip-text text-transparent"> 
-                  Offset.
-                </span>
-              </h1>
-              <p 
-                className="text-xl text-muted-foreground max-w-lg animate-fade-in-up" 
-                style={{ 
-                  animationDelay: '0.4s',
-                  transform: `translateY(${scrollY * 0.05}px)` 
-                }}
-              >
-                Take control of your carbon footprint with Neutrawise. 
-                Monitor your impact, discover reduction strategies, and contribute to a sustainable future through intelligent analytics.
-              </p>
+              <ParallaxSection speed={0.1} enableParallax={true}>
+                <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                  Track. Reduce. 
+                  <span className="text-eco-green bg-gradient-to-r from-eco-green to-eco-blue bg-clip-text text-transparent"> 
+                    Offset.
+                  </span>
+                </h1>
+              </ParallaxSection>
+              <ParallaxSection speed={0.05} enableParallax={true}>
+                <p className="text-xl text-muted-foreground max-w-lg animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  Take control of your carbon footprint with Neutrawise. 
+                  Monitor your impact, discover reduction strategies, and contribute to a sustainable future through intelligent analytics.
+                </p>
+              </ParallaxSection>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
@@ -86,23 +66,18 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div 
-            className="relative animate-fade-in-up" 
-            style={{ 
-              animationDelay: '0.4s',
-              transform: `translateY(${scrollY * -0.1}px)` 
-            }}
-          >
+          <ParallaxSection speed={-0.1} className="relative animate-fade-in-up" enableParallax={true} style={{ animationDelay: '0.4s' }}>
             <div className="relative group">
-              <img 
-                src={heroImage} 
-                alt="Sustainable Earth with renewable energy" 
-                className="w-full h-auto rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-[1.02]"
-                style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-              />
+              <ParallaxSection speed={0.05} enableParallax={true}>
+                <img 
+                  src={heroImage} 
+                  alt="Sustainable Earth with renewable energy" 
+                  className="w-full h-auto rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-[1.02]"
+                />
+              </ParallaxSection>
               <div className="absolute inset-0 bg-gradient-to-t from-eco-green/10 to-transparent rounded-2xl"></div>
             </div>
-          </div>
+          </ParallaxSection>
         </div>
       </div>
     </section>
